@@ -2,8 +2,9 @@
 <xsl:stylesheet
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         version="2.0">
-    <xsl:output method="text"/>
-    <xsl:template match="//charlist">
+    <xsl:output method="text" indent="no"/>
+    <xsl:strip-space elements="*"/>
+    <xsl:template match="unicode/charlist">
         <xsl:text>unicode,latex&#10;</xsl:text>
         <xsl:for-each select="character">
             <xsl:variable name="codepoint" select="./@id"/>
