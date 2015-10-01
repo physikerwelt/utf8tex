@@ -10,7 +10,9 @@
             <xsl:if test="string-length(latex)&gt;1">
                 <xsl:value-of select="substring($codepoint, 2)"/>
                 <xsl:text>,"</xsl:text>
-                <xsl:value-of select="replace(latex, '^\s*(.+?)\s*$', '$1')" disable-output-escaping="yes"/>
+                <xsl:value-of select="replace(
+                    replace( latex, '&quot;', '&quot;&quot;' ),
+                    '^\s*(.+?)\s*$', '$1')" disable-output-escaping="yes"/>
                 <xsl:text>"&#10;</xsl:text>
             </xsl:if>
         </xsl:for-each>
