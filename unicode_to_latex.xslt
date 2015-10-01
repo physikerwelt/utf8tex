@@ -10,7 +10,7 @@ unicode_to_latex = {
     <xsl:for-each select="character">
         <xsl:variable name="codepoint" select="./@id"/>
         <xsl:if test="string-length(latex)&gt;1">
-        <xsl:text>    u"\u</xsl:text><xsl:value-of select="substring($codepoint, 2)" /><xsl:text>": "</xsl:text><xsl:value-of select="replace(replace(latex, '\\', '\\\\'), '&quot;', '\\&quot;')"/><xsl:text>",
+        <xsl:text>    u"\u</xsl:text><xsl:value-of select="substring($codepoint, 2)" /><xsl:text>": "</xsl:text><xsl:value-of select="replace(replace(latex, '\\', '\\\\'), '&quot;', '\\&quot;')" disable-output-escaping="yes"/><xsl:text>",
 </xsl:text>
         </xsl:if>
     </xsl:for-each>
