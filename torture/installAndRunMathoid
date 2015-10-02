@@ -1,0 +1,7 @@
+#!/bin/bash
+npm install mathoid
+cd node_modules/mathoid
+rm config.yaml
+ln -s config.dev.yaml config.yaml
+npm start &
+curl -d "q=emc" localhost:10044/mml
